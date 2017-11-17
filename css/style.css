@@ -232,7 +232,7 @@ input[type="radio"].visually-hidden {
 
   margin: 0 auto;
   margin-top: 48px;
-  margin-bottom: 21px;
+  margin-bottom: 24px;
   padding: 0;
 
   font-size: 21px;
@@ -245,11 +245,19 @@ input[type="radio"].visually-hidden {
   color: #000;
 }
 
+.causes-number {
+  margin: 0;
+  padding: 0;
+
+  font-size: 14px;
+  line-height: 21px;
+}
+
 .causes-text {
   width: 305px;
 
   margin: 0 auto;
-  margin-top: 19px;
+  margin-top: 21px;
   padding: 0;
 
   font-size: 14px;
@@ -272,8 +280,13 @@ input[type="radio"].visually-hidden {
   list-style: none;
 }
 
+.causes-text.causes-short,
+.causes-number.causes-short {
+  color: #333333;
+}
+
 .causes-text.causes-short {
-  color: #000;
+  width: 265px;
 }
 
 .causes-item-description {
@@ -286,10 +299,6 @@ input[type="radio"].visually-hidden {
   text-align: center;
   color: #fff;
   background-color: #81b3d2;
-}
-
-.causes-text.causes-short {
-  width: 265px;
 }
 
 .causes-item-promo {
@@ -578,6 +587,7 @@ input[type="radio"].visually-hidden {
   font-size: 14px;
   line-height: 26px;
   font-weight: normal;
+  color: #000;
 }
 
 .footer-developer p {
@@ -726,10 +736,12 @@ input[type="radio"].visually-hidden {
   border: none;
 }
 
-::-webkit-input-placeholder { color: #000; }
-::-moz-placeholder          { color: #000; } /* Firefox 19+ */
-:-moz-placeholder           { color: #000; } /* Firefox 18- */
-:-ms-input-placeholder      { color: #000; }
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-moz-placeholder,
+:-ms-input-placeholder {
+  color: #000;
+}
 
 .input-calendar {
   position: relative;
@@ -958,7 +970,6 @@ input[type="checkbox"]:checked + label::before {
 
 input[type="checkbox"]:disabled + label::before,
 input[type="checkbox"]:checked:disabled + label::before {
-
   opacity: 0.3;
 }
 
@@ -1005,10 +1016,12 @@ input[type="checkbox"]:checked:disabled + label::before {
 
 .price-controls label {
   display: inline-block;
+  vertical-align: bottom;
+
+  padding: 0;
 
   font-size: 14px;
-  line-height: 38px;
-  vertical-align: top;
+  line-height: 21px;
 
   cursor: pointer;
 }
@@ -1036,11 +1049,12 @@ input[type="checkbox"]:checked:disabled + label::before {
 }
 
 .price-controls input {
+  display: inline-block;
+  vertical-align: top;
   width: 50px;
 
   margin: 0;
-  padding: 8px 0;
-  padding-top: 0;
+  padding: 0;
 
   color: inherit;
   font: inherit;
