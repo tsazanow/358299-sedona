@@ -24,9 +24,7 @@ img {
   height: auto;
 }
 
-.visually-hidden:not(:focus):not(:active),
-input[type="checkbox"].visually-hidden,
-input[type="radio"].visually-hidden {
+.visually-hidden:not(:focus):not(:active) {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -54,6 +52,7 @@ input[type="radio"].visually-hidden {
 }
 
 .site-navigation {
+  position: relative;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -93,10 +92,6 @@ input[type="radio"].visually-hidden {
 .site-navigation-list li:nth-child(2) {
   margin-right: auto;
 }
-
-/*.site-navigation-list li:nth-child(3) {
-  padding: 0;
-}*/
 
 .site-navigation-list li:nth-child(3),
 .site-navigation-list li:last-child {
@@ -139,10 +134,6 @@ input[type="radio"].visually-hidden {
   color: #766357;
 }
 
-.nav-logo {
-  position: relative;
-}
-
 .nav-logo::after {
   content: "";
   position: absolute;
@@ -152,7 +143,6 @@ input[type="radio"].visually-hidden {
   right: 531px;
 
   margin-left: -69px;
-
 
   background-image: url("../img/sedona-logo.png");
   background-repeat: no-repeat;
@@ -177,6 +167,7 @@ input[type="radio"].visually-hidden {
   margin-bottom: 0px;
 
   background-image: url("../img/sedona-view.jpg");
+  background-color: #e4f1f9;
   background-repeat: no-repeat;
   background-position: 0 0;
 }
@@ -363,7 +354,6 @@ input[type="radio"].visually-hidden {
   background-image: url("../img/house-icon.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
-
 }
 
 .features-item:nth-child(2)::before {
@@ -477,25 +467,35 @@ input[type="radio"].visually-hidden {
 
 /*Футер*/
 
-.footer-map {
+.footer-main {
   position: relative;
+}
 
+.footer-map {
   margin: 0;
   padding: 0;
 }
 
-.footer-info,
-.footer-info-catalog {
-  position: absolute;
+.catalog-map {
+  display: none;
+}
+
+.footer-main-info,
+.footer-catalog-info {
   display: flex;
   justify-content: space-between;
-  bottom: 0;
-  left: auto;
+
   width: 1200px;
   min-height: 120px;
 
   background-color: #fff;
   opacity: 0.9;
+}
+
+.footer-main-info {
+  position: absolute;
+  bottom: 0;
+  left: auto;
 }
 
 .footer-hashtag {
@@ -507,13 +507,10 @@ input[type="radio"].visually-hidden {
   margin-left: auto;
   padding: 0;
 
-  text-align: center;
-}
-
-.footer-hashtag b {
   font-size: 21px;
   line-height: 26px;
   font-weight: bold;
+  text-align: center;
   color: #000;
 }
 
@@ -550,6 +547,8 @@ input[type="radio"].visually-hidden {
   margin: 0;
   margin-top: 37px;
   margin-bottom: 44px;
+
+  font-size: 0;
 
   background-color: #81b3d2;
 }
@@ -599,6 +598,10 @@ input[type="radio"].visually-hidden {
 .footer-developer p {
   width: 115px;
   height: 41px;
+}
+
+.footer-logo {
+  font-size: 0;
 }
 
 .footer-logo:hover path,
@@ -766,17 +769,17 @@ input[type="radio"].visually-hidden {
   cursor: pointer;
 }
 
-svg .icon {
+.icon path {
   fill: #000;
   opacity: 0.3;
 }
 
-svg:hover .icon,
-svg:focus .icon {
+.icon:hover path,
+.icon:focus path {
   opacity: 1;
 }
 
-svg:active .icon {
+.icon:active path {
   fill: #81b3d2;
 }
 
@@ -929,11 +932,11 @@ svg:active .icon {
   color: #000000;
 }
 
-input[type="checkbox"] {
+.filter-checkbox {
   display: none;
 }
 
-input[type="checkbox"] + label {
+.filter-checkbox + label {
   display: block;
   position: relative;
 
@@ -948,7 +951,7 @@ input[type="checkbox"] + label {
   cursor: pointer;
 }
 
-input[type="checkbox"] + label::before {
+.filter-checkbox + label::before {
   content: "";
   display: block;
   position: absolute;
@@ -961,7 +964,7 @@ input[type="checkbox"] + label::before {
   background-repeat: no-repeat;
 }
 
-input[type="checkbox"]:checked + label::before {
+.filter-checkbox:checked + label::before {
   content: "";
   display: block;
   position: absolute;
@@ -974,8 +977,8 @@ input[type="checkbox"]:checked + label::before {
   background-repeat: no-repeat;
 }
 
-input[type="checkbox"]:disabled + label::before,
-input[type="checkbox"]:checked:disabled + label::before {
+.filter-checkbox:disabled + label::before,
+.filter-checkbox:checked:disabled + label::before {
   opacity: 0.3;
 }
 
@@ -1103,6 +1106,7 @@ input[type="checkbox"]:checked:disabled + label::before {
 
 .toggle:hover {
   background: #1c4f80;
+  border: 9px solid #ffffff;
 }
 
 .toggle-min {
@@ -1211,32 +1215,35 @@ input[type="checkbox"]:checked:disabled + label::before {
 
   margin: 0;
   padding: 0;
+  padding-top: 8px;
+
+  font-size: 0;
 }
 
 .list-wrapper li:nth-child(2) {
   padding-right: 2px;
 }
 
-svg .arrow-up.active,
-svg .arrow-down.active {
+.arrow-up.active,
+.arrow-down.active {
   fill: #81b3d2;
   opacity: 1;
 }
 
-svg .arrow-up,
-svg .arrow-down {
+.arrow-up,
+.arrow-down {
   opacity: 0.3;
 }
 
-svg:hover .arrow-up,
-svg:focus .arrow-up,
-svg:hover .arrow-down,
-svg:focus .arrow-down {
+.arrow-up:hover,
+.arrow-up:focus,
+.arrow-down:hover,
+.arrow-down:focus {
   opacity: 1;
 }
 
-svg:active .arrow-up,
-svg:active .arrow-down {
+.arrow-up:active,
+.arrow-down:active {
   fill: #81b3d2;
 }
 
@@ -1373,6 +1380,7 @@ svg:active .arrow-down {
 
 .catalog-item-type {
   display: inline-block;
+  vertical-align: middle;
   min-width: 110px;
 
   margin: 0;
@@ -1381,20 +1389,24 @@ svg:active .arrow-down {
 
 .catalog-item-price {
   display: inline-block;
+  vertical-align: middle;
   min-width: 80px;
-  text-align: left;
 
   margin: 0;
   padding: 0;
+
+  text-align: left;
 }
 
 .button-info,
 .button-booking {
   display: inline-block;
-  text-align: center;
+  vertical-align: top;
 
   margin: 0;
   padding: 0;
+
+  text-align: center;
 }
 
 .button-info {
@@ -1459,11 +1471,12 @@ svg:active .arrow-down {
 
 .star {
   display: inline-block;
+  vertical-align: middle;
   width: 20px;
   height: 17px;
 
   margin: 0;
-  margin-bottom: 38px;
+  margin-bottom: 47px;
 
   background-image: url("../img/star.svg");
   background-repeat: no-repeat;
