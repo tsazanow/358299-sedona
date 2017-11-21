@@ -6,12 +6,13 @@
   var hotel = form.querySelector("[name=hotel]");
   var motel = form.querySelector("[name=motel]");
   var apartments = form.querySelector("[name=apartments]");
-  var min-price = form.querySelector("[name=min-price]");
-  var max-price = form.querySelector("[name=max-price]");
+  var minPrice = form.querySelector("[name=min-price]");
+  var maxPrice = form.querySelector("[name=max-price]");
 
 form.addEventListener("submit", function(evt) {
-  if (!hotel.value && !motel.value && !apartments.value) {
+  if (!hotel.checked && !motel.checked && !apartments.checked) {
     evt.preventDefault();
+    console.log("error");
   } else {
     localStorage.setItem("pool", pool.value);
     localStorage.setItem("parking", parking.value);
@@ -19,7 +20,7 @@ form.addEventListener("submit", function(evt) {
     localStorage.setItem("hotel", hotel.value);
     localStorage.setItem("motel", motel.value);
     localStorage.setItem("apartments", apartments.value);
-    localStorage.setItem("min-price", min-price.value);
-    localStorage.setItem("max-price", max-price.value);
+    localStorage.setItem("min-price", minPrice.value);
+    localStorage.setItem("max-price", maxPrice.value);
   }
 })

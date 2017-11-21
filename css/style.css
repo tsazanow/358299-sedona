@@ -162,7 +162,7 @@ img {
   display: flex;
   flex-direction: column;
   width: 1200px;
-  min-height: 780px;
+  min-height: 773px;
 
   margin-bottom: 0px;
 
@@ -171,7 +171,7 @@ img {
     url("../img/sedona-view.jpg");
   background-size:
     100% 273px,
-    100% 100%;
+    1200px 773px;
   background-color: #e4f1f9;
   background-repeat: no-repeat;
   background-position:
@@ -264,6 +264,7 @@ img {
 
   margin: 0 auto;
   margin-top: 21px;
+  margin-bottom: 50px;
   padding: 0;
 
   font-size: 14px;
@@ -397,6 +398,7 @@ img {
   width: 286px;
 
   margin: 0 auto;
+  margin-bottom: 50px;
   padding: 0;
 
   font-size: 14px;
@@ -483,6 +485,22 @@ img {
 .footer-map {
   margin: 0;
   padding: 0;
+
+  z-index: 3;
+}
+
+.footer-map iframe {
+  position: relative;
+
+  z-index: 2;
+}
+
+.footer-map img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 1;
 }
 
 .catalog-map {
@@ -505,6 +523,8 @@ img {
   position: absolute;
   bottom: 0;
   left: auto;
+
+  z-index: 20;
 }
 
 .footer-hashtag {
@@ -634,12 +654,44 @@ img {
 }
 
 @keyframes slide {
-  0% {transform: translateY(-30px);}
-  15% {transform: translateY(-25px);}
-  30% {transform: translateY(-20px);}
-  45% {transform: translateY(-15px);}
-  75% {transform: translateY(-10px);}
-  100% {transform: translateY(0px);}
+  0% {
+    transform: translateY(-30px);
+  }
+  15% {
+    transform: translateY(-25px);
+  }
+  30% {
+    transform: translateY(-20px);
+  }
+  45% {
+    transform: translateY(-15px);
+  }
+  75% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes error {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-15px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(15px);
+  }
 }
 
 .modal-search {
@@ -660,6 +712,11 @@ img {
 
 .modal-hide {
   display: none;
+}
+
+.modal-error {
+  animation-name: error;
+  animation-duration: 0.5s;
 }
 
 .search-form {
@@ -764,13 +821,6 @@ img {
 
   background-color: #f2f2f2;
   border: none;
-}
-
-::-webkit-input-placeholder,
-::-moz-placeholder,
-:-moz-placeholder,
-:-ms-input-placeholder {
-  color: #000;
 }
 
 .input-calendar {
@@ -909,6 +959,7 @@ img {
 
   margin: 0;
   margin-top: 26px;
+  margin-bottom: auto;
   padding: 0;
 
   border: none;
@@ -957,6 +1008,12 @@ img {
   line-height: 21px;
   font-weight: normal;
   color: #000000;
+}
+
+.filters-option label {
+  max-width: 100px;
+
+  word-wrap: break-word;
 }
 
 .filter-checkbox {
@@ -1372,6 +1429,8 @@ img {
   padding: 29px 0;
 }
 
+
+
 .catalog-item-title {
   display: block;
 
@@ -1405,23 +1464,33 @@ img {
   line-height: 21px;
 }
 
+.catalog-wrapper p {
+  width: 260px;
+
+  margin-right: 0;
+}
+
 .catalog-item-type {
   display: inline-block;
   vertical-align: middle;
-  min-width: 110px;
+  width: 110px;
 
   margin: 0;
   padding: 0;
+
+  word-wrap: break-word;
+  text-align: left;
 }
 
 .catalog-item-price {
   display: inline-block;
   vertical-align: middle;
-  min-width: 80px;
+  width: 80px;
 
   margin: 0;
   padding: 0;
 
+  word-wrap: break-word;
   text-align: left;
 }
 
